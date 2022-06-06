@@ -1,18 +1,27 @@
 import React, { useState } from 'react'
+import { Alert, Platform } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
+import { useNavigation, CommonActions } from '@react-navigation/native'
+
+import Api from '../../resources/api/Api'
 
 import {
     Container,
     InputArea,
+    CustomButton,
+    CustomButtonText,
     SignMessageButton,
     SignMessageButtonText,
     SignMessageButtonTextBold
 } from './styles'
 
-import LivroLogin from '../../components/svg/Livro'
+import AlexandriaLogo from '../../assets/Alexandria'
 import IconInput from '../../components/styled/IconInput'
 import { StyledButton } from '../../components/styled/Others'
 
 export default () => {
+
+    const navigation = useNavigation()
 
     const [emailField, setEmailField] = useState('')
     const [senhaField, setSenhaField] = useState('')
@@ -39,9 +48,15 @@ export default () => {
 
     }
 
+    const handleMessageButtonClick = () => {
+        navigation.reset({
+            routes: [{name: 'SignUp'}]
+        })
+}
+
     return (
         <Container>
-            <LivroLogin />
+            <AlexandriaLogo />
 
             <InputArea>
 
@@ -51,7 +66,6 @@ export default () => {
                     value={emailField}
                     onChangeText={t => setEmailField(t)}
                 />
-
                 <IconInput
                     icon="lock"
                     placeholder="Digite a sua senha"
@@ -59,7 +73,6 @@ export default () => {
                     onChangeText={t => setSenhaField(t)}
                     password={true}
                 />
-
                 <StyledButton
                     onPress={handleSignClick}
                     icon="login"
@@ -67,10 +80,10 @@ export default () => {
 
             </InputArea>
 
-            <SignMessageButton>
+            <SignMessageButton onPress={handleMessageButtonClick}>
                 <SignMessageButtonText>Ainda não possui uma conta?</SignMessageButtonText>
                 <SignMessageButtonTextBold>Cadastre-se</SignMessageButtonTextBold>
             </SignMessageButton>
         </Container>
     )
-} 
+}

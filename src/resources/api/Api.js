@@ -41,9 +41,9 @@ export default {
         const json = await req.json()
         return json
     },
-    getProfissionais: async () => {
+    getLivros: async () => {
         let token = await AsyncStorage.getItem('token')
-        const req = await fetch(`${BASE_API}/profissionais`, {
+        const req = await fetch(`${BASE_API}/Livros`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
@@ -54,30 +54,30 @@ export default {
         const json = await req.json()
         return json
     },
-    incluiProfissional: async (dadosProfissional) => {
+    incluiLivro: async (dadosLivro) => {
         let token = await AsyncStorage.getItem('token')
-        const req = await fetch(`${BASE_API}/profissionais`, {
+        const req = await fetch(`${BASE_API}/Livros`, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 'x-access-token': token
             },
-            body: JSON.stringify(dadosProfissional)
+            body: JSON.stringify(dadosLivro)
         })
         const json = await req.json()
         return json
     },
-    alteraProfissional: async (dadosProfissional) => {
+    alteraLivro: async (dadosLivro) => {
         let token = await AsyncStorage.getItem('token')
-        const req = await fetch(`${BASE_API}/profissionais`, {
+        const req = await fetch(`${BASE_API}/Livros`, {
             method: 'PUT',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
                 'x-access-token': token
             },
-            body: JSON.stringify(dadosProfissional)
+            body: JSON.stringify(dadosLivro)
         })
         const json = await req.json()
         return json
