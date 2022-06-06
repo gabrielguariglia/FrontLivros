@@ -11,7 +11,7 @@ export default ({ route }) => {
     //Veio algum dado através da rota de navegação?
     const registroInicial = route.params ? route.params.profissinal :
         {
-            nome: '', autor: '', celular: '', servico: ''
+            nome: '', autor: '', lançamento: '', gênero: '', paginas: ''
         }
 
     const [Livro, setLivro] = useState(registroInicial)
@@ -67,10 +67,21 @@ export default ({ route }) => {
                 <TextInput
                     name="gênero"
                     style={styles.input}
-                    onChangeText={(text) => setLivro({ ...Livro, Gênero: text })}
-                    value={Livro.Gênero}
+                    onChangeText={(text) => setLivro({ ...Livro, gênero: text })}
+                    value={Livro.gênero}
                     keyboardType="default"
                     placeholder='Gênero'
+                    maxLength={20}
+                />
+
+                <Title style={styles.label}>Gênero:</Title>
+                <TextInput
+                    name="numero de paaginas"
+                    style={styles.input}
+                    onChangeText={(text) => setLivro({ ...Livro, paginas: text })}
+                    value={Livro.paginas}
+                    keyboardType="default"
+                    placeholder='N° de paginas'
                     maxLength={20}
                 />
 

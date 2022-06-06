@@ -47,7 +47,9 @@ export default ({ data }) => {
             <InfoArea>
                 <UserName>{ data.nome }</UserName>
                 <Text>{ data.autor }</Text>
-                <Text>{ data.Gênero }</Text>
+                <Text>{ data.gênero }</Text>
+                <Text>{ data.lançamento }</Text>
+                <Text>{ data.paginas }</Text>
 
                 <ProfileButton>
                     <ProfileButtonText>Ver Livro</ProfileButtonText>
