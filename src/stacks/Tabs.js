@@ -33,7 +33,7 @@ export default function Tabs() {
             <Tab.Screen name="Livros" component={Livros}
                 options={{
                     tabBarIcon: ({ focused }) => (
-                        <MaterialCommunityIcons name={'scissors-cutting'}
+                        <MaterialCommunityIcons name={'book'}
                             color={focused ? themes.padrao.colors.brand.amarelo
                                 : themes.padrao.colors.neutral.neutral_60}
                             size={35} />
