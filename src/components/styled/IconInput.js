@@ -28,17 +28,17 @@ export default ({ icon, placeholder, value, onChangeText, password}) => {
     const [senha, setSenha] = useState(password);
     return (
         <InputArea>
-            <MaterialCommunityIcons name={icon} size={30} color={themes.padrao.colors.brand.laranja} />
+            <MaterialCommunityIcons name={icon} size={30} color={themes.padrao.colors.brand.vermelho} />
             <Input
                 placeholder={placeholder}
-                placeholderTextColor={themes.padrao.colors.brand.laranja}
+                placeholderTextColor={themes.padrao.colors.brand.vermelho}
                 value={value}
                 onChangeText={onChangeText}
                 secureTextEntry={senha}
             />
             {password &&
                 <BotaoTouch onPress={() => setSenha(!senha)}>
-                    <MaterialCommunityIcons name={senha ? 'eye' : 'eye-off'} size={30} color={themes.padrao.colors.brand.laranja50} />
+                    <MaterialCommunityIcons name={senha ? 'eye' : 'eye-off'} size={30} color={themes.padrao.colors.brand.vermelho50} />
                 </BotaoTouch>}
         </InputArea>
     )
